@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\src\ELCLite.SharedKernel.Configuration\ELCLite.SharedKernel.Configuration.csproj" />
+    <ProjectReference Include="..\ELCLite.CoreApp.Domain\ELCLite.CoreApp.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

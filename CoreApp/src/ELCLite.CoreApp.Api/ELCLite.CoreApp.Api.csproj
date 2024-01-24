@@ -7,4 +7,9 @@
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ELCLite.CoreApp.Domain\ELCLite.CoreApp.Domain.csproj" />
+    <ProjectReference Include="..\ELCLite.CoreApp.Infrastructure\ELCLite.CoreApp.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

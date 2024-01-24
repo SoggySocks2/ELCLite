@@ -4,7 +4,20 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\src\ELCLite.SharedKernel.Configuration\ELCLite.SharedKernel.Configuration.csproj" />
+    <ProjectReference Include="..\..\..\CoreApp\src\ELCLite.CoreApp.Api\ELCLite.CoreApp.Api.csproj" />
+    <ProjectReference Include="..\..\..\Identity\src\ELCLite.Identity\ELCLite.Identity.csproj" />
+  </ItemGroup>
 
 </Project>
