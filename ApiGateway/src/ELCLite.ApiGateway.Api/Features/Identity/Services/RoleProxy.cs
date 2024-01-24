@@ -2,7 +2,7 @@
 using ELCLite.ApiGateway.Api.Configuration.Authorization;
 using ELCLite.ApiGateway.Api.Features.Identity.Contracts;
 using ELCLite.ApiGateway.Api.Features.Identity.Models;
-using ELCLite.Identity.Features.Roles;
+using ELCLite.Identity.Api.Features.Roles;
 
 namespace ELCLite.ApiGateway.Api.Features.Identity.Services
 {

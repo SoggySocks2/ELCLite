@@ -1,4 +1,4 @@
-﻿using ELCLite.Identity.Configuration;
+﻿using ELCLite.SharedKernel.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
@@ -11,7 +11,7 @@ namespace ELCLite.ApiGateway.Api.Configuration.Authorization
         /// <summary>
         /// Read and decrypt the incoming jason web token
         /// </summary>
-        public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration, IdentitySettings identitySettings)
+        public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration, IIdentitySettings identitySettings)
         {
             if (configuration is null)
             {

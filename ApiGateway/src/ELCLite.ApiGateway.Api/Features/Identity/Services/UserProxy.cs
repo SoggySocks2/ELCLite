@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ELCLite.ApiGateway.Api.Features.Identity.Contracts;
 using ELCLite.ApiGateway.Api.Features.Identity.Models;
-using ELCLite.Identity.Features.Users;
+using ELCLite.Identity.Api.Features.Users;
 
 namespace ELCLite.ApiGateway.Api.Features.Identity.Services
 {

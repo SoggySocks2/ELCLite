@@ -1,5 +1,5 @@
 ﻿using ELCLite.ApiGateway.Api.Features.Identity.Models;
-using ELCLite.Identity.Configuration;
+using ELCLite.SharedKernel.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -14,9 +14,9 @@ namespace ELCLite.ApiGateway.Api.Features.Identity.Endpoints
     [AllowAnonymous]
     public class AuthenticationController : ControllerBase
     {
-        private IdentitySettings _identitySettings { get; }
+        private IIdentitySettings _identitySettings { get; }
 
-        public AuthenticationController(IdentitySettings identitySettings)
+        public AuthenticationController(IIdentitySettings identitySettings)
         {
             _identitySettings = identitySettings;
         }

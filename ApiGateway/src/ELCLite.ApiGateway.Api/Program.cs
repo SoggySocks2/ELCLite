@@ -3,8 +3,9 @@ using ELCLite.ApiGateway.Api.Configuration.Authorization;
 using ELCLite.ApiGateway.Api.Configuration.Swagger;
 using ELCLite.ApiGateway.Api.Features.Identity.Contracts;
 using ELCLite.ApiGateway.Api.Features.Identity.Services;
-using ELCLite.Identity.Configuration;
-using ELCLite.Identity.Data;
+using ELCLite.Identity.Api.Configuration;
+using ELCLite.Identity.Api.Data;
+using ELCLite.SharedKernel.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 
@@ -16,9 +17,9 @@ builder.Configuration.Bind(IdentitySettings.CONFIG_NAME, IdentitySettings.Instan
 builder.Services.AddJwtAuthentication(builder.Configuration, IdentitySettings.Instance);
 builder.Services.AddPolicies();
 
-builder.Services.AddIdentityServices(builder.Configuration, IdentitySettings.Instance);
+builder.Services.AddSingleton<IIdentitySettings>(IdentitySettings.Instance);
+builder.Services.AddIdentityServices(IdentitySettings.Instance);
 
-builder.Services.AddSingleton(IdentitySettings.Instance);
 //builder.Services.AddSingleton<IClientSettings>(services => ClientSettings.Instance);
 
 builder.Services.AddApiGatewayServices();

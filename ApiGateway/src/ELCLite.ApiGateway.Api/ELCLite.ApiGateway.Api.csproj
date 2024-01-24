@@ -17,7 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\src\ELCLite.SharedKernel.Configuration\ELCLite.SharedKernel.Configuration.csproj" />
     <ProjectReference Include="..\..\..\CoreApp\src\ELCLite.CoreApp.Api\ELCLite.CoreApp.Api.csproj" />
-    <ProjectReference Include="..\..\..\Identity\src\ELCLite.Identity\ELCLite.Identity.csproj" />
+    <ProjectReference Include="..\..\..\Identity\src\ELCLite.Identity.Api\ELCLite.Identity.Api.csproj" />
   </ItemGroup>
 
 </Project>
