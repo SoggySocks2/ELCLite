@@ -2,7 +2,6 @@
 using ELCLite.Identity.Data.Contracts;
 using ELCLite.Identity.Features.Roles;
 using ELCLite.Identity.Features.Users;
-using ELCLite.SharedKernel.Contracts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +10,7 @@ namespace ELCLite.Identity.Configuration
 {
     public static class IdentityServicesConfiguration
     {
-        public static void AddIdentityServices(this IServiceCollection services, IConfiguration configuration, IClientSettings clientSettings)
+        public static void AddIdentityServices(this IServiceCollection services, IConfiguration configuration, IdentitySettings clientSettings)
         {
             /* Add the identity database context */
             services.AddDbContext<IdentityDbContext>(options => options.UseSqlServer(clientSettings.ConnectionString));

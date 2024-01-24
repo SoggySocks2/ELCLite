@@ -1,4 +1,5 @@
 ﻿using ELCLite.ApiGateway.Api.Features.Identity.Models;
+using ELCLite.Identity.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -13,9 +14,11 @@ namespace ELCLite.ApiGateway.Api.Features.Identity.Endpoints
     [AllowAnonymous]
     public class AuthenticationController : ControllerBase
     {
-        public AuthenticationController()
-        {
+        private IdentitySettings _identitySettings { get; }
 
+        public AuthenticationController(IdentitySettings identitySettings)
+        {
+            _identitySettings = identitySettings;
         }
 
         /// <summary>
@@ -33,8 +36,8 @@ namespace ELCLite.ApiGateway.Api.Features.Identity.Endpoints
             if (authenticationModel == null) return BadRequest($"{nameof(authenticationModel)} is required");
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            //var encryptionKey = configuration.GetValue<string>("JWTEncryptionKey");
-            var key = Encoding.ASCII.GetBytes("My JWT Encryption Key-My JWT Encryption Key");
+
+            var key = Encoding.ASCII.GetBytes(_identitySettings.EncryptionKey);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -42,8 +45,8 @@ namespace ELCLite.ApiGateway.Api.Features.Identity.Endpoints
                 {
                             new Claim(ClaimTypes.NameIdentifier, "123"),
                             new Claim(ClaimTypes.Name, $"Peter Jones"),
-                            //new Claim(ClaimTypes.Role, "GlobalAdmin"),
-                            new Claim(ClaimTypes.Role, "Admin")
+                            new Claim(ClaimTypes.Role, "GlobalAdmin")
+                            //new Claim(ClaimTypes.Role, "Admin")
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

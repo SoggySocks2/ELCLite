@@ -1,15 +1,15 @@
-﻿using ELCLite.SharedKernel.Contracts;
+﻿//using ELCLite.SharedKernel.Contracts;
 
-namespace ELCLite.Identity.Configuration
-{
-    public class ClientSettings : IClientSettings
-    {
-        public const string CONFIG_NAME = "ClientSettings";
+//namespace ELCLite.Identity.Configuration
+//{
+//    public class ClientSettings : IClientSettings
+//    {
+//        public const string CONFIG_NAME = "ClientSettings";
 
-        public static ClientSettings Instance { get; } = new ClientSettings();
-        private ClientSettings() { }
+//        public static ClientSettings Instance { get; } = new ClientSettings();
+//        private ClientSettings() { }
 
-        public string Name { get; set; } = string.Empty;
-        public string ConnectionString { get; set; } = string.Empty;
-    }
-}
+//        public string Name { get; set; } = string.Empty;
+//        public string ConnectionString { get; set; } = string.Empty;
+//    }
+//}

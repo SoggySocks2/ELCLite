@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using ELCLite.Identity.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text;
@@ -10,18 +11,15 @@ namespace ELCLite.ApiGateway.Api.Configuration.Authorization
         /// <summary>
         /// Read and decrypt the incoming jason web token
         /// </summary>
-        public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
+        public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration, IdentitySettings identitySettings)
         {
             if (configuration is null)
             {
                 throw new ArgumentNullException(nameof(configuration));
             }
 
-            /* Read encryption key */
             //TODO: MOVE THIS KEY INTO A SECURE VAULT
-            //var encryptionKey = configuration.GetValue<string>("JWTEncryptionKey");
-            var encryptionKey = "My JWT Encryption Key-My JWT Encryption Key";
-            var key = Encoding.ASCII.GetBytes(encryptionKey);
+            var key = Encoding.ASCII.GetBytes(identitySettings.EncryptionKey);
 
             services.AddAuthentication(x =>
             {
